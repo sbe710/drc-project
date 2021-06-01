@@ -13,7 +13,7 @@ def crop(pts, image):
     cropped = image[y:y + h, x:x + w].copy()
     pts = pts - pts.min(axis=0)
     mask = np.zeros(cropped.shape[:2], np.uint8)
-    cv2.drawContours(mask, [pts], -1, (255, 255, 255), -1, cv2.LINE_AA)
+    cv2.drawContours(mask, [pts], -1, (255, 0, 255), -1, cv2.LINE_AA)
     dst = cv2.bitwise_and(cropped, cropped, mask=mask)
     bg = np.ones_like(cropped, np.uint8) * 255
     cv2.bitwise_not(bg, bg, mask=mask)

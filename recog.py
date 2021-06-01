@@ -117,7 +117,7 @@ if __name__ == '__main__':
     parser.add_argument('--image_folder', required=True, help='path to image_folder which contains text images')
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=4)
     parser.add_argument('--batch_size', type=int, default=192, help='input batch size')
-    parser.add_argument('--saved_model', default='./pretrained_model/TPS-ResNet-BiLSTM-Attn.pth', help="path to saved_model to evaluation")
+    parser.add_argument('--saved_model', default='./pretrained_model/best_accuracy.pth', help="path to saved_model to evaluation")
     """ Data processing """
     parser.add_argument('--batch_max_length', type=int, default=25, help='maximum-label-length')
     parser.add_argument('--imgH', type=int, default=32, help='the height of the input image')
