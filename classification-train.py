@@ -19,12 +19,18 @@ for line in f:
 
 texts_labels = [line.rstrip() for line in texts_labels]
 
+print('Classification train process started')
+
 text_clf = Pipeline([
-                     ('tfidf', TfidfVectorizer()),
-                     ('clf', RandomForestClassifier())
-                    ])
+    ('tfidf', TfidfVectorizer()),
+    ('clf', RandomForestClassifier())
+])
 text_clf.fit(textData, texts_labels)
+
+print('Classification train process ended')
 
 # Save to file in the current working directory
 joblib_file = f"pretrained_model/classification_{args['language']}_model.pkl"
 joblib.dump(text_clf, joblib_file)
+
+print('Classification trained model successfully saved')

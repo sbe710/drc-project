@@ -9,6 +9,8 @@ args = vars(parser.parse_args())
 joblib_file = f"pretrained_model/classification_{args['language']}_model.pkl"
 joblib_model = joblib.load(joblib_file)
 
+print('Trained model for classification successfully loaded')
+
 recognitionResultsArr = []
 recognitionResults = open('./Results/text.txt')
 
@@ -22,5 +24,6 @@ for index, line in enumerate(recognitionResultsArr):
     resultArray.append(f'{recognitionResultsArr[index]} - {text_clf_result[index]}')
 
 print('Text classification result: ', resultArray)
+
 textCategories = open('./Results/textCategories.txt', 'a')
 textCategories.write(f'{resultArray}\n')
