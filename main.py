@@ -13,9 +13,10 @@ parser.add_argument('--image_folder', default='./Results/CropWords/', help='path
 parser.add_argument('--saved_model', default='./pretrained_model/TPS-ResNet-BiLSTM-Attn.pth', help="path to saved_model to evaluation")
 args = vars(parser.parse_args())
 
-#print(args['test_folder'])
+# print(args['test_folder'])
 
-subprocess.call([sys.executable, "./detect.py", f"--test_folder={args['test_folder']}", f"--cuda={args['cuda']}", f"--trained_model={args['trained_model']}"])
-subprocess.call([sys.executable, "./crop_images.py"])
-subprocess.call([sys.executable, "./recog.py", f"--image_folder={args['image_folder']}", f"--saved_model={args['saved_model']}"])
+
+subprocess.call(['python3', "detect.py", f"--test_folder={args['test_folder']}", f"--cuda={args['cuda']}", f"--trained_model={args['trained_model']}"])
+subprocess.call(['python3', "crop_images.py"])
+subprocess.call(['python3', "recog.py", f"--image_folder={args['image_folder']}", f"--saved_model={args['saved_model']}"])
 #subprocess.call([sys.executable, "./class.py"])
